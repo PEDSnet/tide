@@ -67,10 +67,19 @@ TiDE can be used in various environments. Below are the prerequisites and instru
 
    1. In the command window, execute the following
 
-   ```
-   mvn clean install -DskipTests
-   java -jar ./target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=text --phiFileName=./phi/phi_person_data_example.csv --personFile=./person_data/person.csv --inputResource=./sample_notes --outputResource=./output
-   ```
+      1. If notes file is prepared in text format:
+
+      ```
+      mvn clean install -DskipTests
+      java -jar ./target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=text --phiFileName=./phi/phi_person_data_example.csv --personFile=./person_data/person.csv --inputResource=./sample_notes --outputResource=./output
+      ```
+
+      2. If notes file is prepared in jsonl format:
+
+      ```
+      mvn clean install -DskipTests
+      java -jar ./target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=local --inputResource=./sample_notes_jsonl/notes.json --outputResource=./output textIdFields="id" --textInputFields="note"
+      ```
 
    2. [Sample Input](#Sample-Input-Local)
 
@@ -128,14 +137,15 @@ TiDE can be used in various environments. Below are the prerequisites and instru
 ### Sample Input Local
 
    Sample Notes:
-      Please refer to ([sample notes folder](sample_notes))
+      For inputType="text": [sample notes folder](sample_notes)
+      For inputType="local": [sample notes jsonl folder](sample_notes_jsonl)
 
    Input Arguments:
 
    1. inputResource (mandatory) e.g. inputResource=/workspaces/sample_notes
    When used with
       1. "inputType=text", this argument specifies location of the folder with notes to be deid in text format. All files in this folder will be processed.
-      2. "inputType="local", this argument specifies the file with notes to be deid in newline delimited JSON files (jsonl) format.
+      2. "inputType="local", this argument specifies the file with notes to be deid in newline delimited JSON files (jsonl) format.You can directly use jsonl that contains id and free text column as input if you only need to use NER or general patten matching. If you have known PHI associated with text, you need to have phi information embedded in the jsonl file.
 
 ### Sample Input GCP
 
