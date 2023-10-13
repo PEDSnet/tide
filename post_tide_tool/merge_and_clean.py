@@ -19,9 +19,10 @@ for root, _, files in os.walk(notes_dir): # walk through notes_dir and all subfo
                 data = data.replace('}\n{', '}\n\n{') # to avoid special char \n contaminate result
                 data = data.split('\n\n')
                 for i in data:
-                    current_record = json.loads(i)
-                    result = {
-                        "note_id": current_record['note_id'] , # need to be align with field in Tide output file
-                        "note": current_record['TEXT_DEID_note_text'] # need to be align with field in Tide output file
-                    }
-                    output_f.write(json.dumps(result)+'\n')
+                    if i:
+                        current_record = json.loads(i)
+                        result = {
+                            "note_id": current_record['note_id'] , # need to be align with field in Tide output file
+                            "note": current_record['TEXT_DEID_note_text'] # need to be align with field in Tide output file
+                        }
+                        output_f.write(json.dumps(result)+'\n')
