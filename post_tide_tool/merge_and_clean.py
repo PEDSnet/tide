@@ -13,8 +13,8 @@ for root, _, files in os.walk(notes_dir): # walk through notes_dir and all subfo
         file_path = os.path.join(root, file)
         if 'DeidNote' in os.path.basename(file_path): # if filename contains 'DeidNote'
             print(f"Processing: {file_path}")
-            with open(output_filename, 'a') as output_f:
-                with  open(file_path, "r") as json_file:
+            with open(output_filename, 'a', encoding='utf-8') as output_f:
+                with  open(file_path, "r", encoding='utf-8') as json_file:
                     data = json_file.read()
                 data = data.replace('}\n{', '}\n\n{') # to avoid special char \n contaminate result
                 data = data.split('\n\n')
