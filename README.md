@@ -103,7 +103,7 @@ TiDE can be used in various environments. Below are the prerequisites and instru
 
    ```java
 
-   java -jar /opt/deid/target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=/workspaces/src/main/resources/--deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=text --phiFileName=/workspaces/phi/phi_person_data_example.csv --personFile=/workspaces/person_data/person.csv --inputResource=/workspaces/sample_notes --outputResource=/workspaces/output
+   java -jar /opt/deid/target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=text --phiFileName=/workspaces/phi/phi_person_data_example.csv --personFile=/workspaces/person_data/person.csv --inputResource=/workspaces/sample_notes --outputResource=/workspaces/output
 
    ```
 
