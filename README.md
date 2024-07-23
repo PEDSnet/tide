@@ -78,7 +78,7 @@ TiDE can be used in various environments. Below are the prerequisites and instru
 
       ```
       mvn clean install -DskipTests
-      java -jar ./target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=local --inputResource=./sample_notes_jsonl/notes.json --outputResource=./output textIdFields="note_id" --textInputFields="note_text"
+      java -jar ./target/deid-3.0.31-SNAPSHOT-dataflow.jar --deidConfigFile=./src/main/resources/deid_config_omop_genrep.yaml --annotatorConfigFile=./src/main/resources/annotator_config.yaml --inputType=local --inputResource=./sample_notes_jsonl/notes.json --outputResource=./output --textIdFields="note_id" --textInputFields="note_text"
       ```
 
    2. [Sample Input](#Sample-Input-Local)
