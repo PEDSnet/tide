@@ -87,6 +87,13 @@
       <version>3.4.0</version> <!-- Choose the version matching your Hadoop version -->
     </dependency>
 
+    <!-- Apache Beam SDK Hadoop File System IO Dependency -->
+    <dependency>
+        <groupId>org.apache.beam</groupId>
+        <artifactId>beam-sdks-java-io-hadoop-file-system</artifactId>
+        <version>${beam.version}</version> <!-- Will use the version defined earlier -->
+    </dependency>
+
     <dependency>
       <groupId>org.apache.beam</groupId>
       <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
